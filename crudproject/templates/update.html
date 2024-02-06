@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Update Student Registration</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-warning-subtle">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Student Course Registration</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Sign In</a></li>
+                <li><a class="dropdown-item" href="#">Sing Up</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-title">
+              <h4 class="text-center bg-success-subtle text-dark mt-3">
+                Update Student Registration Form
+              </h4>
+            </div>
+
+            <div class="card-text p-3">
+              <form action="/update/{{data.id}}" method="post"> {% csrf_token %}
+                <div class="form-group">
+                  <label for="name" class="mb-1">Student Name:</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="fullname"
+                    id="name_01"
+                    value="{{data.name}}"
+                    placeholder="enter your name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group mt-3">
+                  <label for="email" class="mb-1">Email:</label>
+                  <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    id="email_01"
+                    value={{data.email}}
+                    placeholder="enter your email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="age" class="mb-1">Student Age:</label>
+                    <input
+                      class="form-control"
+                      type="number"
+                      name="age"
+                      id="age_01"
+                      value={{data.age}}
+                      placeholder="enter your age"
+                      
+                    />
+                </div>
+                <div class="form-group mt-3">
+                    <label for="course" class="mb-1">Courses:</label>
+                    <select class="form-select" aria-label="select-course" name="course">
+                        <option selected value={{data.course}}>{{data.course}}</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Full Stack Development">Full Stack Development</option>
+                      </select>
+                </div>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-success" type="submit">Update</button>
+                  </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
